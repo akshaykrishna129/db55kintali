@@ -13,19 +13,18 @@ router.get('/', api_controller.api);
 /// land ROUTES /// 
  
 // POST request for creating a land.  
-router.post('/lands', land_controller.land_create_post); 
+router.post('/land', land_controller.land_create_post); 
  
 // DELETE request to delete land. 
-router.delete('/lands/:id', land_controller.land_delete); 
+router.delete('/land/:id', land_controller.land_delete); 
  
 // PUT request to update land. 
-router.put('/lands/:id', 
-land_controller.land_update_put); 
+router.put('/land/:id', land_controller.land_update_put); 
  
 // GET request for one land. 
-router.get('/lands/:id', land_controller.land_detail); 
+router.get('/land/:id', land_controller.land_detail); 
  
 // GET request for list of all land items. 
-router.get('/lands', land_controller.land_list); 
+router.get('/land', land_controller.land_list); 
  
 module.exports = router;

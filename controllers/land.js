@@ -1,9 +1,29 @@
 var land = require('../models/land'); 
  
-// List of all lands 
-exports.land_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: land list'); 
+// List of all land
+exports.land_list = async function(req, res) { 
+    try{ 
+        theland = await land.find(); 
+        res.send(theland); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
 }; 
+// VIEWS 
+// Handle a show all view 
+exports.land_view_all_Page = async function(req, res) { 
+    try{ 
+        theland = await land.find(); 
+        res.render('land', { title: 'Costume Search Results', results: theland }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 
+ 
  
 // for a specific land. 
 exports.land_detail = function(req, res) { 
