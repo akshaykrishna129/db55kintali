@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - const tree = results
+  - const land = results
   - let results1;
   script.
     function buy(x){
@@ -10,6 +10,6 @@ block content
    } 
   div(class='container-fluid')
     div(class='row')
-      each results1, index in tree
+      each results1, index in land
         div( onclick='buy('+index+')') #{results1}
 
