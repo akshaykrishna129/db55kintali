@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let landid = toShow._id 
+  - let land_type = toShow.land_type 
+  - let area = toShow.area 
+  - let cost = toShow.cost 
+  div 
+    div.row 
+      div(class='landAttr mr-3') land ID is: 
+      div #{landid} 
+    div.row 
+      div(class='landAttr mr-3') land_type is: 
+      div #{land_type} 
+    div.row 
+      div(class='landAttr mr-3') area is: 
+      div #{area} 
+    div.row 
+      div(class='landAttr mr-3') land Cost is: 
+      div #{cost}
