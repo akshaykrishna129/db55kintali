@@ -21,7 +21,8 @@ var resourceRouter = require('./routes/resource');
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
-  // Delete everything await Costume.deleteMany();
+  // Delete everything 
+  await land.deleteMany();
   let instance1 = new land({land_type :"agriculture", area:'hyderabad', cost: 1000000});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);

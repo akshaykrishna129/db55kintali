@@ -9,5 +9,22 @@ a {
 .landAttr { 
   background-color: aquamarine; 
   width: 120px; 
+  margin: 6px;
+  text-align: center;
+  color:burlywood
 } 
+.landna {
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight:normal;
+
+}
+.style{
+  color:greenyellow;
+  background-color: blue;
+  color: blanchedalmond
+}
  

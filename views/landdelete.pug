@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  h1(class="style")= title
+
+  
+    - let landid = toShow._id
+    - let area = toShow.area
+    - let cost = toShow.cost
+    - let actionid = "/resource/land/" + landid
+
+    script let actionid = "#{actionid}"
+    div
+      div.row
+        div(class='landAttr mr-3') land ID is:
+        div(class="style landup") #{landid}
+      div.row
+        div(class='landAttr mr-3') land brand is:
+        div(class="style landup") #{area}
+      
+      div.row
+        div(class='landAttr mr-3') land cost is:
+        div(class='style landup') #{cost}
+      
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+ 
+  script.
+    function deleteOnid() {
+      console.log("Deleting the Resource")
+      // delete first
+      fetch(actionid, {
+        method: 'DELETE'      // Don't need a body for the delete
+      }).then((resp) => {
+        return resp.json();   // or resp.text() or wlandever the server sends
+      }).then((body) => {
+        alert("Delete succeded")
+        window.location.href='/land'
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Delete failed " + error )
+      });
+    }

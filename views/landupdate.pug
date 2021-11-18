@@ -1,0 +1,45 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let landid = toShow._id 
+  - let land_type = toShow.land_type 
+  - let landarea = toShow.area 
+  - let landcost = toShow.cost 
+  
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{landid} 
+  - let actionid = "/resource/land/" + landid 
+  form(id='landForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.landAttr(for='land_type') land type 
+        input#land_type(type='text', name='land_type', value= land_type ) 
+    div.form-group 
+        label.landAttr(for='area') land area 
+        input#area(type='text', name='area', value=area ) 
+    div.form-group 
+        label.landAttr(for='cost') land cost 
+        input#cost(type='number', name='cost', value=cost ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['landForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 
+ 
