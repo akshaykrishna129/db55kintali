@@ -4,12 +4,23 @@ block content
   h1= title
   - const land = results
   - let results1;
+  div(class="container-fluid") 
+    div(class="row") 
+      each item in land  
+        - let destination = `dispatch(\"/land/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.land_type}(#{item.area}) is #{item.cost} 
+        button.btn( class="btn-primary ml-1", onclick= destination) Update 
   script.
     function buy(x){
       alert('Purchased Item: ' + x)
    } 
-  div(class='container-fluid')
-    div(class='row')
-      each results1, index in land
-        div( onclick='buy('+index+')') #{results1}
+  script. 
+    function dispatch(path)
+    { 
+         window.location.href=path 
+    } 
+  //div(class='container-fluid')
+    //div(class='row')
+      //each results1, index in land
+       // div( onclick='buy('+index+')') #{results1}
 
