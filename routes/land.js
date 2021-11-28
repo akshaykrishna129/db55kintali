@@ -23,10 +23,10 @@ router.get("/", function (req, res, next) {
 /* GET detail land page */ 
 router.get('/detail', land_controlers.land_view_one_Page); 
 /* GET create costume page */ 
-router.get('/create', land_controlers.land_create_Page); 
+router.get('/create', secured, land_controlers.land_create_Page); 
 /* GET create update page */ 
 router.get('/update', secured, land_controlers.land_update_Page); 
 /* GET create land page */ 
-router.get('/delete', land_controlers.land_delete_Page); 
+router.get('/delete', secured,land_controlers.land_delete_Page); 
 
 module.exports = router;

@@ -1,7 +1,15 @@
 const mongoose = require("mongoose") 
 const landSchema = mongoose.Schema({ 
- land_type: String, 
- area: String, 
+ land_type: {
+     type:String,
+     minLength:9
+ },
+
+ area: {
+     type:String,
+     minLength:6
+
+ } , 
  cost: Number 
 }) 
  
